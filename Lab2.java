@@ -17,10 +17,8 @@ public class Lab2
   public static void lightCandles()
   {
     //insert instructions below
-  
-  
-  
   }
+
   
   //Run this method to test completeRoom on map room1.txt
   public static void testCompleteRoom1()
