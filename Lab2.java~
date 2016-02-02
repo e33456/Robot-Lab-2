@@ -6,8 +6,6 @@ public class Lab2
     Robot.setDelay(0.05);
     
     Lab2.lightCandles();
-    Lab2.lightCandles ();
-    
   }
   
   public static void testLightCandles2()
@@ -20,18 +18,50 @@ public class Lab2
   public static void lightCandles()
   {
     //insert instructions below
-  Robot.turnLeft ();
-  if (rightIsClear ()) {
-    Lab2.turnRight ();
+   Lab2.lightOneCandle ();
+   Lab2.lightOneCandle ();
+   Lab2.lightOneCandle ();
+   Lab2.lightOneCandle ();
+   Lab2.lightOneCandle ();
+   Lab2.lightOneCandle ();
+   Lab2.lightOneCandle ();
+   Lab2.lightOneCandle ();
+   Lab2.lightOneCandle ();
+   Lab2.lightOneCandle ();
+  }
+  
+  public static void lightOneCandle()
+  {
+     Robot.turnLeft ();
     Robot.move ();
-    Robot.makeDark ();
+    if (!rightIsClear ())
+    {
+      Robot.move ();
+    }
+    
+      Lab2.turnRight ();
+      Robot.move ();
+      Robot.makeDark ();
+      Robot.move ();
+      Lab2.turnRight ();
+      Robot.move ();
+    
+    if (Robot.frontIsClear ())
+    {
+      Robot.move ();
+      Robot.turnLeft ();
+    }
+    else
+    {
+      Robot.turnLeft ();
+    }
   }
-  }
+  
   
   public static boolean rightIsClear ()
   {
    Lab2.turnRight ();
-   if (frontIsClear ())
+   if (Robot.frontIsClear ())
    {
   Robot.turnLeft ();
      return true ;
@@ -71,8 +101,35 @@ public class Lab2
   {
     //insert instructions below
   
+  if (Lab2.leftIsClear ())
+  {
+   Robot.turnLeft ();
+    Robot.move () ;
+    Robot.turnLeft ();
+    Robot.turnLeft ();
+    Robot.move ();
+    Robot.turnLeft ();
+    }
+    else
+    {
+      Robot.makeDark ();
+    }
+  } 
+
   
-  
+  public static boolean leftIsClear ()
+  {
+    Robot.turnLeft ();
+    if (Robot.frontIsClear ())
+    {
+      Lab2.turnRight ();
+      return true;
+    }
+    else
+    {
+      Lab2.turnRight ();
+      return false;
+    }
   }
   
   //Run this method to test swapAll on map swap1.txt
