@@ -4,7 +4,10 @@ public class Lab2
   {
     Robot.load("candles1.txt");
     Robot.setDelay(0.05);
+    
     Lab2.lightCandles();
+    Lab2.lightCandles ();
+    
   }
   
   public static void testLightCandles2()
@@ -17,9 +20,36 @@ public class Lab2
   public static void lightCandles()
   {
     //insert instructions below
+  Robot.turnLeft ();
+  if (rightIsClear ()) {
+    Lab2.turnRight ();
+    Robot.move ();
+    Robot.makeDark ();
   }
-
+  }
   
+  public static boolean rightIsClear ()
+  {
+   Lab2.turnRight ();
+   if (frontIsClear ())
+   {
+  Robot.turnLeft ();
+     return true ;
+   }
+   else
+   {
+     Robot.turnLeft ();
+   return false ;
+  }
+  }
+   
+  public static void turnRight ()
+  {
+    Robot.turnLeft ();
+  Robot.turnLeft () ;
+  Robot.turnLeft ();
+  }
+    
   //Run this method to test completeRoom on map room1.txt
   public static void testCompleteRoom1()
   {
