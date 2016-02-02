@@ -220,6 +220,7 @@ Lab2.oneWall ();
       Lab2.turnRight ();
      }
 else
+  //need to fix all this stuff under here, above is good I think :)
 {
   Robot.turnLeft ();
   Robot.turnLeft ();
