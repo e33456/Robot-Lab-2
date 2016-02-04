@@ -187,12 +187,32 @@ Lab2.oneWall ();
   public static void swapAll()
   {
     //insert instructions below
+
+    Lab2.oneRow ();
+    Robot.move ();
+    Lab2.oneRow ();
+    Robot.move ();
+    Lab2.oneRow ();
+    Robot.move ();
+    Lab2.oneRow ();
+    Robot.move ();
+    Lab2.oneRow ();
+    Robot.move ();
+    Lab2.oneRow ();
+    Robot.move ();
+    Lab2.oneRow ();
+    Robot.move ();
+    Lab2.oneRow ();
+    Robot.move ();
+    Lab2.oneRow ();
+    Robot.move ();
     Lab2.oneRow ();
   }
   
   public static void oneRow ()
-  {
-    Lab2.firstTurn ();
+  { 
+      Lab2.turnRight ();
+      Robot.move ();
     if (Robot.onDark ())
     {
       Lab2.aroundAndMove ();
@@ -201,7 +221,15 @@ Lab2.oneWall ();
         Robot.makeDark ();
         Lab2.aroundAndMove ();
         Robot.makeLight ();
-       
+       Lab2.turnAround ();
+       Robot.move ();
+       Lab2.turnRight ();
+      }
+      else
+      {
+        Lab2.turnAround ();
+        Robot.move ();
+        Robot.turnLeft ();
       }
     }
     else
@@ -211,20 +239,23 @@ Lab2.oneWall ();
       {
         Robot.makeLight ();
         Lab2.aroundAndMove ();
-
+        Robot.makeDark ();
+        Lab2.turnAround ();
+       Robot.move ();
+       Lab2.turnRight ();
+      }
+      else
+      {
+        Lab2.turnAround ();
+       Robot.move ();
+       Robot.turnLeft ();
       }
     }
   }
-  
-  public static void firstTurn ()
-  {
-    Lab2.turnRight ();
-    Robot.move ();
-  }
+ 
   
   public static void turnAround ()
   {
-    Robot.turnLeft ();
     Robot.turnLeft ();
     Robot.turnLeft ();
   }
