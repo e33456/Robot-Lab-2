@@ -187,55 +187,53 @@ Lab2.oneWall ();
   public static void swapAll()
   {
     //insert instructions below
-  Lab2.areMatched ();
-  Robot.move ();
-  
+    Lab2.oneRow ();
   }
   
-  public static void areMatched ()
-    //precondition: Robot faces north and has two blocks to east and west which may or may not be matching
-    //postcondition: Robot faces north and has two blocks east and west which have swapped from their previous position
+  public static void oneRow ()
+  {
+    Lab2.firstTurn ();
+    if (Robot.onDark ())
+    {
+      Lab2.aroundAndMove ();
+      if (!Robot.onDark ())
+      {
+        Robot.makeDark ();
+        Lab2.aroundAndMove ();
+        Robot.makeLight ();
+       
+      }
+    }
+    else
+    {
+      Lab2.aroundAndMove ();
+      if (Robot.onDark ())
+      {
+        Robot.makeLight ();
+        Lab2.aroundAndMove ();
+
+      }
+    }
+  }
+  
+  public static void firstTurn ()
   {
     Lab2.turnRight ();
     Robot.move ();
-    if (Robot.onDark ())
-      //before: on dark
-      //after: moves to other side, if not dark, makes dark and goes to other side to make light
-    {
-      Robot.turnLeft ();
-      Robot.turnLeft ();
-      Robot.move ();
-      Robot.move ();
-     if (!Robot.onDark ())
-     {
-       Robot.makeDark ();
-       Robot.turnLeft ();
-       Robot.turnLeft ();
-       Robot.move ();
-       Robot.move ();
-       Robot.makeLight ();
-      Robot.turnLeft ();
-      Robot.turnLeft ();
-      Robot.move ();
-      Lab2.turnRight ();
-     }
-else
-  //need to fix all this stuff under here, above is good I think :)
-{
-  Robot.turnLeft ();
-  Robot.turnLeft ();
-  Robot.move ();
-  Robot.move ();
-  if (Robot.onDark ())
-  {
-    Robot.makeLight ();
-    Robot.turnLeft ();
-       Robot.turnLeft ();
-       Robot.move ();
-       Robot.turnLeft ();
   }
-}
-}
-}
+  
+  public static void turnAround ()
+  {
+    Robot.turnLeft ();
+    Robot.turnLeft ();
+    Robot.turnLeft ();
+  }
+  
+  public static void aroundAndMove ()
+  {
+    Lab2.turnAround ();
+    Robot.move ();
+      Robot.move ();
+  }
  
 }

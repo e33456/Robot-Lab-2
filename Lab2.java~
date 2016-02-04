@@ -100,22 +100,57 @@ public class Lab2
   public static void completeRoom()
   {
     //insert instructions below
+  Lab2.oneBlock ();
+  Lab2.oneBlock ();
+  Lab2.oneBlock ();
+  Lab2.oneBlock ();
+  Lab2.turnRight ();
+Lab2.oneWall ();
+Lab2.turnRight ();
+Lab2.oneWall ();
+Lab2.turnRight ();
+Lab2.oneWall ();
   
-  if (Lab2.leftIsClear ())
+  }
+ 
+  public static void oneBlock ()
+  {
+     if (Lab2.leftIsClear ())
   {
    Robot.turnLeft ();
     Robot.move () ;
+    if (!Robot.onDark ())
+    {Robot.makeDark ();}
     Robot.turnLeft ();
     Robot.turnLeft ();
     Robot.move ();
     Robot.turnLeft ();
     }
-    else
-    {
-      Robot.makeDark ();
-    }
+    Robot.move ();
   } 
-
+  
+  public static void lastBlock ()
+   {
+     if (Lab2.leftIsClear ())
+  {
+   Robot.turnLeft ();
+    Robot.move () ;
+    Robot.makeDark ();
+    Robot.turnLeft ();
+    Robot.turnLeft ();
+    Robot.move ();
+    Robot.turnLeft ();
+    }
+  }  
+  
+  public static void oneWall ()
+  {
+      Lab2.oneBlock ();
+  Lab2.oneBlock ();
+  Lab2.oneBlock ();
+  Lab2.oneBlock ();
+  Lab2.lastBlock ();
+  }
   
   public static boolean leftIsClear ()
   {
@@ -152,8 +187,55 @@ public class Lab2
   public static void swapAll()
   {
     //insert instructions below
-  
-  
+  Lab2.areMatched ();
+  Robot.move ();
   
   }
+  
+  public static void areMatched ()
+    //precondition: Robot faces north and has two blocks to east and west which may or may not be matching
+    //postcondition: Robot faces north and has two blocks east and west which have swapped from their previous position
+  {
+    Lab2.turnRight ();
+    Robot.move ();
+    if (Robot.onDark ())
+      //before: on dark
+      //after: moves to other side, if not dark, makes dark and goes to other side to make light
+    {
+      Robot.turnLeft ();
+      Robot.turnLeft ();
+      Robot.move ();
+      Robot.move ();
+     if (!Robot.onDark ())
+     {
+       Robot.makeDark ();
+       Robot.turnLeft ();
+       Robot.turnLeft ();
+       Robot.move ();
+       Robot.move ();
+       Robot.makeLight ();
+      Robot.turnLeft ();
+      Robot.turnLeft ();
+      Robot.move ();
+      Lab2.turnRight ();
+     }
+else
+  //need to fix all this stuff under here, above is good I think :)
+{
+  Robot.turnLeft ();
+  Robot.turnLeft ();
+  Robot.move ();
+  Robot.move ();
+  if (Robot.onDark ())
+  {
+    Robot.makeLight ();
+    Robot.turnLeft ();
+       Robot.turnLeft ();
+       Robot.move ();
+       Robot.turnLeft ();
+  }
+}
+}
+}
+ 
 }
